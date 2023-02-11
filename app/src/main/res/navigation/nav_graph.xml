@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/teamSelectionFragment">
+
+    <fragment
+        android:id="@+id/allTeamsFragment"
+        android:name="com.android.sportz.interactive.practical.ui.allteams.AllTeamsFragment"
+        android:label="fragment_all_teams"
+        tools:layout="@layout/fragment_all_teams">
+        <action
+            android:id="@+id/action_allTeamsFragment_to_simulateTeamsFragment"
+            app:destination="@id/simulateTeamsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/simulateTeamsFragment"
+        android:name="com.android.sportz.interactive.practical.ui.simulate.SimulateTeamsFragment"
+        android:label="fragment_simulate_teams"
+        tools:layout="@layout/fragment_simulate_teams">
+        <action
+            android:id="@+id/action_simulateTeamsFragment_to_winnerTeamFragment"
+            app:destination="@id/winnerTeamFragment"
+            app:popUpTo="@id/teamSelectionFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/winnerTeamFragment"
+        android:name="com.android.sportz.interactive.practical.ui.winnerteam.WinnerTeamFragment"
+        android:label="fragment_winner_team"
+        tools:layout="@layout/fragment_winner_team" >
+        <action
+            android:id="@+id/action_winnerTeamFragment_to_teamSelectionFragment"
+            app:destination="@id/teamSelectionFragment"
+            app:popUpTo="@id/teamSelectionFragment"
+            app:popUpToSaveState="false"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/teamSelectionFragment"
+        android:name="com.android.sportz.interactive.practical.ui.teamselection.TeamSelectionFragment"
+        android:label="fragment_team_selection"
+        tools:layout="@layout/fragment_team_selection" >
+
+        <action
+            android:id="@+id/action_teamSelectionFragment_to_allTeamsFragment"
+            app:destination="@id/allTeamsFragment" />
+        <action
+            android:id="@+id/action_teamSelectionFragment_to_simulateTeamsFragment"
+            app:destination="@id/simulateTeamsFragment" />
+    </fragment>
+</navigation>
